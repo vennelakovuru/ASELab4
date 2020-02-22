@@ -14,7 +14,7 @@
                 <ion-icon size="large" name="search" (click)="getMovieDetails()"></ion-icon>
             </ion-col>
         </ion-row>
-    </ion-grid>
+    </ion-grid>+
     <div *ngIf="movieDetails != null">
         <ion-item>
             <strong>{{movieDetails.results[0].title}}</strong>
@@ -22,5 +22,16 @@
         <ion-item>
             {{movieDetails.results[0].overview}}
         </ion-item>
+        <ion-item>
+            <button (click)="classifyCheck()">Get film ratings</button>
+        </ion-item>
+        <div *ngIf = "searchinprogress">
+        <ion-item>
+            This Movie is rated {{movieDetails.results[0].vote_average}}
+        </ion-item>
+        <ion-item>
+            This Movie is most likely to be watched by people of {{this.maxkey}} age group
+        </ion-item>
+        </div>
     </div>
 </ion-content>
